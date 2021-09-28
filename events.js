@@ -13,6 +13,7 @@ links.forEach(link => {
     addDataAction(link)
     addDataLabel(link)
     addDataCategory(link)
+    addOnclikEvent(link)
 })
 
 
@@ -32,6 +33,16 @@ function addDataLabel(el) {
 
 function addDataCategory(el) {
     parentNodeNameFinder(function(nodeNameParent) {el.dataset.category = nodeNameParent}, el)
+}
+
+function addOnclikEvent(el) {
+    el.onclick = function(){ 
+        dataLayer.push({
+            'action' : el.dataset.action,
+            'category' : el.dataset.category,
+            'label' : el.dataset.label
+            }); 
+    }
 }
 
 function parentNodeNameFinder(callback, el) {
