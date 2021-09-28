@@ -1,12 +1,18 @@
 var links = document.querySelectorAll("a");
+const externalLabel = "external_interaction"
+const internalLabel = "content_interaction"
+const parentNodeNameArray = ["NAV", "ARTICLE", "FOOTER"]
+const parentNodeNameObject = { 
+    NAV: { name: "navigation" }, 
+    ARTICLE: { name:"article" }, 
+    FOOTER: { name:"footer" } 
+}
+const parentNodeNameNotDefined = "NaN"
 
 links.forEach(link => {
     addDataAction(link)
     addDataLabel(link)
     addDataCategory(link)
-    console.log(link.dataset.action)
-    console.log(link.dataset.label)
-    console.log(link.dataset.category)
 })
 
 
@@ -16,34 +22,31 @@ function addDataAction(el) {
     }  
 }
 
-
 function addDataLabel(el) {
-
     if (isExternalLink(el.href)){
-        el.dataset.label = "external_interaction"
+        el.dataset.label = externalLabel
         return
     }
-    el.dataset.label = "content_interaction"
+    el.dataset.label = internalLabel
 }
 
 function addDataCategory(el) {
-    isParentOffIntrest(function(nodeNameParent) {el.dataset.category = nodeNameParent}, el)
-    
+    parentNodeNameFinder(function(nodeNameParent) {el.dataset.category = nodeNameParent}, el)
 }
 
-function isParentOffIntrest(callback, el) {
+function parentNodeNameFinder(callback, el) {
 
     // Some elements did not fit into either nav, article or footer so i gave it NaN :)
     if(!el.parentElement) {
-        callback("NaN")
+        callback(parentNodeNameNotDefined)
         return
     }
 
-    if(["NAV", "ARTICLE", "FOOTER"].includes(el.parentElement.nodeName)) {
-        callback(el.parentElement.nodeName)
+    if(parentNodeNameArray.includes(el.parentElement.nodeName)) {
+        callback(parentNodeNameObject[el.parentElement.nodeName].name)
         return
     } else {
-        isParentOffIntrest(callback,el.parentElement)
+        parentNodeNameFinder(callback,el.parentElement)
     }
 }
 
