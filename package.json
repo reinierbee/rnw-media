@@ -1,0 +1,23 @@
+{
+  "name": "rnw-media",
+  "version": "1.0.0",
+  "description": "",
+  "main": "events.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "minify": "uglifyjs events.js --compress --mangle --warn --output events.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reinierbee/rnw-media.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reinierbee/rnw-media/issues"
+  },
+  "homepage": "https://github.com/reinierbee/rnw-media#readme",
+  "dependencies": {
+    "uglify-js": "^3.14.2"
+  }
+}
