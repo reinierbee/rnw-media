@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title>Simple PHP test</title>
+        <style type="text/css">
+            main {
+                max-width: 800px;
+                padding: 20px;
+
+            }
+            body, html {
+                margin:0; 
+                padding: 0;
+                font-family: sans-serif;
+            }
+            code {
+                font-family: monospace;
+            }
+            code pre {
+                padding:10px 20px 0 20px;
+                background-color: #eee;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+    <h1>Simple PHP test</h1>
+
+    <p>As with the other test we have given you, this is not about making something hard, but about how you think.</p>
+
+    <p>we've created a test.php file with the code in it, please fill it in an send it back</p>
+
+    <ol>
+        <li>
+            <h2>Getting Unique Names from two lists</h2>
+            <p>Below are two lists, there are some duplicates.  Combine the two lists, removing any duplicates, leaving only unique names</p>
+            <code>
+                <pre>
+$list1 = ['David', 'Sarah', 'John', 'Luc', 'Angela'];
+
+$list2 = ['John', 'Luc', 'Martijn', 'Hillary', 'Angela'];
+                </pre>
+            </code>        
+        </li>
+        <li>
+            <h2>Looping a multi-dimentional array</h2>
+            <p>
+                Loop through this array, and make a comma separated list of first names.
+            </p>
+            <code>
+                <pre>
+$people = [
+    [
+        'first_name' => 'Quentin',
+        'last_name'  => 'Tarrantino'
+    ], 
+    [
+        'first_name' => 'Patty',
+        'last_name'  => 'Jenkins'
+    ],
+    [ 
+        'first_name' => 'Kathryn',
+        'last_name'  => 'Bigelow'
+    ],
+    [
+        'first_name' => 'Luc',
+        'last_name'  => 'Besson'
+    ]
+];
+                </pre>
+            </code>  
+        </li>
+        <li>
+            <h2>Use this class to add text to a string</h2>
+            <p>
+                Use the class below to create the word 'Hello', where each letter is added separatly. Once the word is made, echo it to the screen.
+            </p>
+            <code>
+                <pre>
+class TextInput {
+
+    public $currentValue = '';
+    
+    public function add($text) {
+        $this->currentValue .= $text;
+    }
+
+    public function getValue() {
+        return $this->currentValue;
+    }
+
+}
+                </pre>
+            </code>  
+        </li>
+        <li>
+            <h2>Use foreach to loop from 0 to 100 in steps of 5, showing each new number step on a new line</h2>
+            <p>
+                Using only <b>foreach</b> (not for or while), loop from 0 to 100 in steps of 5, showing each new number step on a new line. Although FOR or WHILE might make this task easier, they are not to be used.
+            </p>
+        </li>       
+    </main>
+    </body>
+</html>
